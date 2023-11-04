@@ -13,7 +13,7 @@ Feature: Career opportunities in different locations
     When user select  "Apply RSI Logistics" option
     Then user should see "RSI CAREERS APPLY AT RSI LOGISTICS" header on the page
 
-
+@wip
     Scenario Outline:  User filters career opportunities by <location>
 
       Given user clicks on the career tab from homepage

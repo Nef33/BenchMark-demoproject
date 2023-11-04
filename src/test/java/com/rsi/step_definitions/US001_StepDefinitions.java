@@ -7,10 +7,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -54,10 +51,12 @@ public class US001_StepDefinitions extends BasePage {
 
         //3- Scroll down to “Career” link
 
-        js.executeScript("arguments[0].scrollIntoView(true)", Driver.getDriver().findElement(By.xpath("//*[@id=\"post-6341\"]/div/div[2]/div[1]/div/div/div/div/div/h1")));
+        js.executeScript("arguments[0].scrollIntoView(true)", Driver.getDriver().findElement(By.xpath("(//td[@class='gnewtonJobLink'])[1]")));
+
+
 
         Select select =new Select(Driver.getDriver().findElement(By.xpath("//*[@id=\"gnewtonLocation\"]")));
-        select.selectByValue(location);
+        select.selectByVisibleText(location);
 
         careerPage.searchButton.click();
 
