@@ -13,10 +13,12 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import javax.swing.*;
 import java.time.Duration;
+import java.util.List;
 
 public class US001_StepDefinitions extends BasePage {
 
@@ -47,16 +49,31 @@ public class US001_StepDefinitions extends BasePage {
 
 
     @When("user applies the filter for {string}")
-    public void user_applies_the_filter_for(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void user_applies_the_filter_for(String location) throws InterruptedException {
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+
+        //3- Scroll down to “Career” link
+
+        js.executeScript("arguments[0].scrollIntoView(true)", Driver.getDriver().findElement(By.xpath("//*[@id=\"post-6341\"]/div/div[2]/div[1]/div/div/div/div/div/h1")));
+
+        Select select =new Select(Driver.getDriver().findElement(By.xpath("//*[@id=\"gnewtonLocation\"]")));
+        select.selectByValue(location);
+
+        careerPage.searchButton.click();
+
     }
-    @Then("user should see a list  {string} of career opportunities in Okemos,MI")
-    public void user_should_see_a_list_of_career_opportunities_in_okemos_mi(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+
+
+
+
+
+    @Then("user should see a list  {string} of career opportunities in location")
+    public void userShouldSeeAListOfCareerOpportunitiesInLocation(String expectedNUmberOfOptions) {
+        List<WebElement> opportunities=Driver.getDriver().findElements(By.tagName("a"));
+
+        int actualNumberOfOptions=opportunities.size();
+
+
+        Assert.assertEquals(expectedNUmberOfOptions, String.valueOf(actualNumberOfOptions));
     }
-
-
-
 }
