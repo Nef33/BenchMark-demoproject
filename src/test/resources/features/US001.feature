@@ -24,4 +24,4 @@ Feature: Career opportunities in different locations
       |number|location|
       |2|Okemos, MI|
       | 2|Buffalo, NY|
-      |1|Konxville, TN|
+      |1|Knoxville, TN|

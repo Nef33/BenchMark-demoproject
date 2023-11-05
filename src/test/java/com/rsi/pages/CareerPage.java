@@ -17,8 +17,14 @@ public class CareerPage {
     @FindBy(xpath="//h1[.='RSI Careers Apply at RSI Logistics']")
     public WebElement careerPageHeader;
 
-    @FindBy(id="/gnewtonSearchBtn")
+    @FindBy(xpath="//*[@id='gnewtonSearchBtn']")
     public WebElement searchButton;
     @FindBy(id="/gnewtonLocation")
     public WebElement locationDropdown;
+
+    @FindBy(css=".wpb_wrapper")
+    public WebElement scrollUp ;
+
+    @FindBy(id="gnewtonKeyword")
+    public WebElement searchJobAndTitle;
 }

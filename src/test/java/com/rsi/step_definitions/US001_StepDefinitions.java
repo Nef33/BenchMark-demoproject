@@ -2,6 +2,7 @@ package com.rsi.step_definitions;
 
 import com.rsi.pages.BasePage;
 import com.rsi.pages.CareerPage;
+import com.rsi.utilities.BrowserUtil;
 import com.rsi.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -47,18 +48,26 @@ public class US001_StepDefinitions extends BasePage {
 
     @When("user applies the filter for {string}")
     public void user_applies_the_filter_for(String location) throws InterruptedException {
-        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
 
-        //3- Scroll down to “Career” link
+        BrowserUtil.waitFor(3);
+        BrowserUtil.scrollToElement(careerPage.scrollUp);
+        BrowserUtil.waitFor(3);
 
-        js.executeScript("arguments[0].scrollIntoView(true)", Driver.getDriver().findElement(By.xpath("(//td[@class='gnewtonJobLink'])[1]")));
 
+        Driver.getDriver().switchTo().frame("gnewtonIframe");
 
 
         Select select =new Select(Driver.getDriver().findElement(By.xpath("//*[@id=\"gnewtonLocation\"]")));
         select.selectByVisibleText(location);
 
+
+
+        BrowserUtil.waitForClickablility(careerPage.searchButton,3);
         careerPage.searchButton.click();
+
+
+
+
 
     }
 
@@ -68,7 +77,7 @@ public class US001_StepDefinitions extends BasePage {
 
     @Then("user should see a list  {string} of career opportunities in location")
     public void userShouldSeeAListOfCareerOpportunitiesInLocation(String expectedNUmberOfOptions) {
-        List<WebElement> opportunities=Driver.getDriver().findElements(By.tagName("a"));
+        List<WebElement> opportunities=Driver.getDriver().findElements(By.xpath("//td[@class='gnewtonJobLink']"));
 
         int actualNumberOfOptions=opportunities.size();
 
