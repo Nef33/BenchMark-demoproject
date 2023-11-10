@@ -8,7 +8,7 @@ Feature: Career opportunities in different locations
   So that I can see all possible careers in different locations
 
 
-  Scenario: RSI Careers tabs
+  Scenario: BenchMark Careers tabs
     Given user clicks on the career tab from homepage
     When user select  "Apply RSI Logistics" option
     Then user should see "RSI CAREERS APPLY AT RSI LOGISTICS" header on the page
