@@ -11,7 +11,12 @@ public abstract class BasePage {
     }
 
 
-    @FindBy(xpath="//*[@id=\"site-navigation\"]/div[2]/ul/li[4]/a")
+    @FindBy(xpath="//a[.='About Us']")
 
-    public WebElement careerTab;
+    public WebElement aboutUsTab;
+
+
+    @FindBy(xpath="(//a[@title='Careers'])[1]")
+
+    public WebElement careersTab;
 }

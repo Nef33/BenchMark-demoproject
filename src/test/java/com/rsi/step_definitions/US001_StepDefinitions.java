@@ -20,68 +20,39 @@ import java.util.List;
 
 public class US001_StepDefinitions extends BasePage {
 
-
-    @Given("user clicks on the career tab from homepage")
-    public void user_clicks_on_the_career_tab_from_homepage() throws InterruptedException {
-    Thread.sleep(5);
-
-      careerTab.click();
-
-    }
-
     CareerPage careerPage=new CareerPage();
-    @When("user select  {string} option")
-    public void user_select_option(String string) {
-      careerPage.applyRSILogisticButton.click();
-    }
 
-    @Then("user should see {string} header on the page")
-    public void user_should_see_header_on_the_page(String expectedHeader) {
-      String actualHeader=  careerPage.careerPageHeader.getText();
+    @Given("user clicks on About Us tab")
+    public void user_clicks_on_about_us_tab() {
 
-        Assert.assertEquals(expectedHeader,actualHeader);
+        aboutUsTab.click();
 
 
     }
-
-
-
-    @When("user applies the filter for {string}")
-    public void user_applies_the_filter_for(String location) throws InterruptedException {
-
-        BrowserUtil.waitFor(3);
-        BrowserUtil.scrollToElement(careerPage.scrollUp);
-        BrowserUtil.waitFor(3);
-
-
-        Driver.getDriver().switchTo().frame("gnewtonIframe");
-
-
-        Select select =new Select(Driver.getDriver().findElement(By.xpath("//*[@id=\"gnewtonLocation\"]")));
-        select.selectByVisibleText(location);
-
-
-
-        BrowserUtil.waitForClickablility(careerPage.searchButton,3);
-        careerPage.searchButton.click();
-
-
-
-
+    @When("user selects  {string} tab")
+    public void user_selects_tab(String careers) {
+        careersTab.click();
 
     }
 
 
 
+        @Then("user should see {int} different career opportunities as {string} on the page")
+        public void userShouldSeeDifferentCareerOpportunitiesAsOnThePage(int expectedCareerCount, String expectedCurrentOpportunities) {
+            int actualCareerCount = careerPage.currentOpportunities.size();
+
+            Assert.assertEquals(expectedCareerCount, actualCareerCount);
+            System.out.println("actualCareerCount = " + actualCareerCount);
+            System.out.println("expectedCareerCount = " + expectedCareerCount);
+
+            for (int i = 0; i < actualCareerCount; i++) {
+                String actualCurrentOpportunities=careerPage.currentOpportunities.get(i).getText();
+                System.out.println("actualCurrentOpportunities = " + actualCurrentOpportunities);
+                System.out.println("expectedCurrentOpportunities = " + expectedCurrentOpportunities);
 
 
-    @Then("user should see a list  {string} of career opportunities in location")
-    public void userShouldSeeAListOfCareerOpportunitiesInLocation(String expectedNUmberOfOptions) {
-        List<WebElement> opportunities=Driver.getDriver().findElements(By.xpath("//td[@class='gnewtonJobLink']"));
-
-        int actualNumberOfOptions=opportunities.size();
+            }
 
 
-        Assert.assertEquals(expectedNUmberOfOptions, String.valueOf(actualNumberOfOptions));
-    }
-}
+
+        }}

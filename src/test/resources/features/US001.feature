@@ -1,27 +1,27 @@
 
 @ui
 
-Feature: Career opportunities in different locations
+Feature: Career opportunities in BenchMarkAnalytics
 
   Agile story: As a user,
-  I want to filter career opportunities
-  So that I can see all possible careers in different locations
+  I want to check career opportunities
+  So that I can see all available careers in BenchMarkAnalytics company
 
 
-  Scenario: BenchMark Careers tabs
-    Given user clicks on the career tab from homepage
-    When user select  "Apply RSI Logistics" option
-    Then user should see "RSI CAREERS APPLY AT RSI LOGISTICS" header on the page
+  Scenario Outline: Available QA Engineer positions in BenchMarkAnalytics
+    Given user clicks on About Us tab
+    When user selects  "Careers" tab
+    Then user should see 7 different career opportunities as "<Current Opportunities>" on the page
 
-@wip
-    Scenario Outline:  User filters career opportunities by <location>
+    Examples:
+    |Current Opportunities|
+    |QA Engineer|
+    |SQL Developer|
+    |Senior Product Owner|
+    |Product Owner|
+    |Controller|
+    |Operations Coordinator|
+    |Enterprise Implementation Lead|
 
-      Given user clicks on the career tab from homepage
-      When user select  "Apply RSI Logistics" option
-      When user applies the filter for "<location>"
-      Then user should see a list  "<number>" of career opportunities in location
-      Examples:
-      |number|location|
-      |2|Okemos, MI|
-      | 2|Buffalo, NY|
-      |1|Knoxville, TN|
+
+
