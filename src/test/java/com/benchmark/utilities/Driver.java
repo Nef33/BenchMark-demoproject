@@ -1,4 +1,4 @@
-package com.rsi.utilities;
+package com.benchmark.utilities;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

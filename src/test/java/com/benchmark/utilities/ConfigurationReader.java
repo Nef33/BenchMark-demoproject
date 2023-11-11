@@ -1,4 +1,4 @@
-package com.rsi.utilities;
+package com.benchmark.utilities;
 
 import java.io.FileInputStream;
 import java.io.IOException;

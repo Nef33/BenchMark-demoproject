@@ -1,4 +1,4 @@
-package com.rsi.runners;
+package com.benchmark.runners;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
@@ -13,7 +13,7 @@ import org.junit.runner.RunWith;
                 "rerun:target/rerun.txt"
         },
         features = "src/test/resources/features",
-        glue = "com/rsi/step_definitions",
+        glue = "com/benchmark/step_definitions",
         dryRun = false,
         tags ="@ui",
         publish = true //generating a report with public link

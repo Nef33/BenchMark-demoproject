@@ -1,21 +1,13 @@
-package com.rsi.step_definitions;
+package com.benchmark.step_definitions;
 
-import com.rsi.pages.BasePage;
-import com.rsi.pages.CareerPage;
-import com.rsi.utilities.BrowserUtil;
-import com.rsi.utilities.Driver;
+import com.benchmark.pages.BasePage;
+import com.benchmark.pages.CareerPage;
+import com.benchmark.utilities.BrowserUtil;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.*;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import javax.swing.*;
-import java.time.Duration;
 import java.util.List;
 
 public class US001_StepDefinitions extends BasePage {

@@ -1,4 +1,4 @@
-package com.rsi.utilities;
+package com.benchmark.utilities;
 
 import org.junit.Assert;
 import org.openqa.selenium.*;

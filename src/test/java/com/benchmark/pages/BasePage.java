@@ -1,6 +1,6 @@
-package com.rsi.pages;
+package com.benchmark.pages;
 
-import com.rsi.utilities.Driver;
+import com.benchmark.utilities.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;

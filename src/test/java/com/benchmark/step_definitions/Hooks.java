@@ -1,7 +1,7 @@
-package com.rsi.step_definitions;
+package com.benchmark.step_definitions;
 
-import com.rsi.utilities.ConfigurationReader;
-import com.rsi.utilities.Driver;
+import com.benchmark.utilities.ConfigurationReader;
+import com.benchmark.utilities.Driver;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
