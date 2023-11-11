@@ -13,6 +13,6 @@ public class CareerPage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    @FindBy(xpath="//li[@class='job-posting-listing general-listing']")
+    @FindBy(xpath="//ul/li[@class='job-posting-listing general-listing']//h4")
     public List<WebElement> currentOpportunities;
 }

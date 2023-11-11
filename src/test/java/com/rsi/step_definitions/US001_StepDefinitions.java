@@ -21,6 +21,7 @@ import java.util.List;
 public class US001_StepDefinitions extends BasePage {
 
     CareerPage careerPage=new CareerPage();
+    List<String>actualCurrentOpportunities;
 
     @Given("user clicks on About Us tab")
     public void user_clicks_on_about_us_tab() {
@@ -29,30 +30,28 @@ public class US001_StepDefinitions extends BasePage {
 
 
     }
-    @When("user selects  {string} tab")
-    public void user_selects_tab(String careers) {
-        careersTab.click();
 
+    @When("user selects  careers tab")
+    public void userSelectsCareersTab() {
+        careersTab.click();
     }
 
 
+    @Then("user should see {int} different career opportunities on the page")
+    public void user_should_see_different_career_opportunities_on_the_page(int expectedCareerCount, List<String>expectedCurrentOpportunities ) {
+        int actualCareerCount = careerPage.currentOpportunities.size();
 
-        @Then("user should see {int} different career opportunities as {string} on the page")
-        public void userShouldSeeDifferentCareerOpportunitiesAsOnThePage(int expectedCareerCount, String expectedCurrentOpportunities) {
-            int actualCareerCount = careerPage.currentOpportunities.size();
-
-            Assert.assertEquals(expectedCareerCount, actualCareerCount);
-            System.out.println("actualCareerCount = " + actualCareerCount);
-            System.out.println("expectedCareerCount = " + expectedCareerCount);
-
-            for (int i = 0; i < actualCareerCount; i++) {
-                String actualCurrentOpportunities=careerPage.currentOpportunities.get(i).getText();
-                System.out.println("actualCurrentOpportunities = " + actualCurrentOpportunities);
-                System.out.println("expectedCurrentOpportunities = " + expectedCurrentOpportunities);
+        List<String>actualCurrentOpportunities=BrowserUtil.getElementsText(careerPage.currentOpportunities);
 
 
-            }
+        System.out.println("actualCareerCount = " + actualCareerCount);
+        System.out.println("expectedCareerCount = " + expectedCareerCount);
+        System.out.println("actualCurrentOpportunities = " + actualCurrentOpportunities);
+        System.out.println("expectedCurrentOpportunities = " + expectedCurrentOpportunities);
+        
 
+        Assert.assertEquals(expectedCareerCount, actualCareerCount);
+        Assert.assertEquals(expectedCurrentOpportunities,actualCurrentOpportunities);
+    }
+}
 
-
-        }}

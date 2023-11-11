@@ -8,13 +8,10 @@ Feature: Career opportunities in BenchMarkAnalytics
   So that I can see all available careers in BenchMarkAnalytics company
 
 
-  Scenario Outline: Available QA Engineer positions in BenchMarkAnalytics
+  Scenario: Available QA Engineer positions in BenchMarkAnalytics
     Given user clicks on About Us tab
-    When user selects  "Careers" tab
-    Then user should see 7 different career opportunities as "<Current Opportunities>" on the page
-
-    Examples:
-    |Current Opportunities|
+    When user selects  careers tab
+    Then user should see 7 different career opportunities on the page
     |QA Engineer|
     |SQL Developer|
     |Senior Product Owner|
